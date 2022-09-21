@@ -38,28 +38,68 @@ class _AlbumPageState extends State<AlbumPage> {
                         image: AssetImage(widget.canciones['img']),
                         fit: BoxFit.cover)),
               ),
-              SafeArea(
+              SizedBox(
+                height: 30,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 30, right: 30),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      icon: Icon(Icons.arrow_back_ios_new_outlined),
-                      color: blanco,
+                    Text(
+                      widget.canciones['title'],
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          color: blanco),
                     ),
-                    IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      icon: Icon(FeatherIcons.moreVertical),
-                      color: blanco,
+                    Container(
+                      decoration: BoxDecoration(
+                          color: gris, borderRadius: BorderRadius.circular(5)),
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            left: 12, right: 12, top: 10, bottom: 10),
+                        child: Text(
+                          "Suscribe",
+                          style: TextStyle(color: blanco, fontSize: 12),
+                        ),
+                      ),
                     )
                   ],
                 ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Column(
+                children: List.generate(10, (index) {
+                  return Padding(
+                      padding: const EdgeInsets.only(
+                          left: 30, right: 30, bottom: 10));
+                }),
               )
             ],
+          ),
+          SafeArea(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                IconButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: Icon(Icons.arrow_back_ios_new_outlined),
+                  color: blanco,
+                ),
+                IconButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: Icon(FeatherIcons.moreVertical),
+                  color: blanco,
+                )
+              ],
+            ),
           )
         ],
       ),
